@@ -35,3 +35,21 @@ http://localhost:9091/publish/Kunal
 
 Whatever msg you publish on the topic, same will be displayed on the console above for 
 that topic.
+-------------
+
+Whenever you are going to work with plain text, you don't need to use KafkaPublisherConfigClass which we have
+created now. So previous example was working without that.
+
+When we are working with raw object, you need to provide key serializer and value serializer. And you need to manually
+configure the KafkaTemplate as in the above mentioned class.
+
+
+configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+
+http://localhost:9091/publishJson
+![JSON Data Published](src/main/resources/img/Image3.JPG)
+
+
+
+For more details: Visit: https://www.youtube.com/watch?v=clouToNoxGM&t=550s

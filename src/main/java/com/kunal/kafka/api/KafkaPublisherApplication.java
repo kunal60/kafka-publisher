@@ -24,6 +24,13 @@ public class KafkaPublisherApplication {
         return "Data published";
     }
 
+    @GetMapping("/publishJson")
+    public String publishMessage() {
+        User user = new User(2532, "User88", new String[] { "Bangalore", "BTM", "house 90" });
+        template.send(topic, user);
+        return "Json Data published";
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(KafkaPublisherApplication.class, args);
     }
